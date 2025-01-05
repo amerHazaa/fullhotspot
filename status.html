@@ -1,0 +1,184 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>تم تسجيل الدخول </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	<script type='text/javascript' language="javascript"  >
+	
+	function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+	}	
+</script>
+
+<script language="JavaScript">
+
+function readablizeBytes(bytes) {
+var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+var e = Math.floor(Math.log(bytes)/Math.log(1024));
+return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+</script>
+<script language="JavaScript">
+
+function readablizeBytes(bytes) {
+var s = ['&#1576;&#1575;&#1610;&#1578;', '&#1603;&#1610;&#1604;&#1608;&#1576;&#1575;&#1610;&#1578;', '&#1605;&#1610;&#1580;&#1575;&#1576;&#1575;&#1610;&#1578;', '&#1580;&#1610;&#1580;&#1575;&#1576;&#1575;&#1610;&#1578;', '&#1578;&#1610;&#1585;&#1575;&#1576;&#1575;&#1610;&#1578;', 'PB'];
+var e = Math.floor(Math.log(bytes)/Math.log(1024));
+return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+</script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="login.html">شبكة الصرح الذهبي ترحب بكم  </a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="login.html">الرئيسية</a></li>
+					<li><a href="http://Estra7ah.com">الاستراحة</a></li>
+					<li><a href="http://Estra7ah.com/livestream">البث المباشر</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+			<section id="banner" class="bg-img" data-bg="banner.jpg">
+				<div class="inner">
+					<header>
+						<h1>تم تسجيل الدخول بنجاح </h1>
+					</header>
+				</div>
+				<a href="#one" class="more">Learn More</a>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+				  <h3 class="txt-center"><strong>عزيز المستخدم .. تذكر ان الله فوق كل شيء رقيب .. فاجعل استخدامك للإنترنت فيما يرضيه وتستفيد</strong></h3>
+				  	<h2>تم تسجيل الدخول بنجاح</h2>
+					    <form action="$(link-logout)" name="logout" onSubmit="return openLogout()" class="auto-style3">
+		<table border="1"  dir="rtl" align="center" class="auto-style4">
+		$(if login-by == &#39;trial&#39;)
+		<br><div>Welcome trial user!</div><br>
+		$(elif login-by != &#39;mac&#39;)
+		<br><b><font size="3"><div>
+			
+			<span>&#1605;&#1585;&#1581;&#1576;&#1575;&#1611; $()!</span></div><br >
+		</font></b>$(endif)<div>
+		<tr><td class="auto-style5" style="width: 110px"><font size="2">الوقت المستخدم</font></td>
+			<td style="width: 182px" class="auto-style5">
+			<font size="2" id="uptime">$(uptime)</font></td></tr>
+		<tr><td class="auto-style5" style="width: 110px"><font size="2">&#1575;&#1604;&#1608;&#1602;&#1578; &#1575;&#1604;&#1605;&#1578;&#1576;&#1602;&#1610;</font></td>
+			<td style="width: 182px" class="auto-style5">
+			<font size="2" id="timeLeft">$(session-time-left)</font></td></tr>
+		
+		<tr>
+				<td class="auto-style5" style="width: 110px"><font size="2">التحميل المتبقي</font></td>
+				<td style="width: 182px" class="auto-style5">
+				<font size="2"><script language="JavaScript">document.write(readablizeBytes($(remain-bytes-total)));</script></font></td>	
+			</tr>
+			
+				<tr>
+				<td class="auto-style5" style="width: 110px"><font size="2">التحميل المستخدم</font></td>
+				<td style="width: 182px" class="auto-style5">
+				<font size="2"><script language="JavaScript">document.write(readablizeBytes($(bytes-out)));</script></font></td>
+			</tr>
+		
+		
+		
+			</div></table>
+		<p align="center">$(if login-by-mac != &#39;yes&#39;)
+		<br>
+		
+			<input type="submit" class="button alt" value="تسجيل الخروج">$(endif)
+		</form>
+		
+		<form action="$(link-logout)" name="logout_ec"><!-- onSubmit="return openLogout_Erase_Cookie()">-->
+		<!--<input name="erase-cookie" value="on" type="hidden">-->
+		<button type="submit"  onclick='return deleteAllCookies();' class="button alt">خروج نهائي</button>
+		</form>
+						</header>
+					</article>
+				</div>
+				<a href="#two" class="more">Learn More</a>
+			</section>
+
+		<!-- Two -->
+
+		<!-- Three -->
+
+		<!-- Four -->
+			<section id="four" class="wrapper post bg-img" data-bg="banner3.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>تطوير م / يحي المذلبي </h2>
+						</header>
+						<div class="content">
+							<p>لللأستعلامات (0) </p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			
+	</div>
+
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="copyright"><!--
+	<p class="txt-center"><a href="https://www.facebook.com/mikrotikman">
+					<img alt="mikrotikman" title="------------" src="images/mikro.png"></a></p>
+					</div>
+				</div>
+			</footer>
+
+				
+<script type="text/javascript">
+document.getElementById("timeLeft").innerHTML = "$(session-time-left)".replace("w", " أسبوع , ").replace("d", " يوم , ").replace("h", " ساعة , ").replace("m", " دقيقة , ").replace("s", " ثانية");
+</script>
+
+
+<script type="text/javascript">
+document.getElementById("uptime").innerHTML = "$(uptime)".replace("w", " أسبوع , ").replace("d", " يوم , ").replace("h", " ساعة , ").replace("m", " دقيقة , ").replace("s", " ثانية");
+</script>
+
+			
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

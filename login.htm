@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>شبكة الصرح الذهبي  </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+<script type="text/javascript" src="audio-player.js"></script>  
+$(if chap-id)
+<script>
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); // 7 أيام
+    var expires = "expires=" + d.toUTCString();
+    alert("محاولة الدخول " + cvalue );
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkUserCookie() {
+    var user = getCookie("username");
+    if (user !== "") {
+        document.getElementById("uname").value = user; // عرض اسم المستخدم المحفوظ
+    }
+}
+
+function saveUsername() {
+    var uname = document.getElementById("uname").value;
+    var remember = document.getElementById("remember").checked;
+    if (remember && uname !== "") {
+        setCookie("username", uname, 7); // حفظ الكوكيز لمدة أسبوع
+    }
+}
+
+// استدعاء الكوكيز عند تحميل الصفحة
+window.onload = checkUserCookie;
+</script>
+
+
+<script type="text/javascript" src="/md5.js"></script>
+	<!-- Start Java Script Functions -->
+
+	<script type='text/javascript' language="javascript">
+	function rem(){
+	var uname = document.getElementById('uname').value;
+    var rem   = document.getElementById('remember').checked;
+	if(rem == true){
+    var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+    date.setTime(date.getTime()+(259200*1000));
+    var expire  = date.toGMTString();
+    document.cookie = 'uname='+uname+';expires='+expire+'';
+    document.cookie = 'error=1;expires='+expires+'';
+    }
+    else{
+    return;
+    }
+	}
+	function getCookie2(){
+	var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+    var SP = document.cookie.split(';');
+    for (i=0; i < SP.length; i++) {
+    name_value = SP[i];
+    str = name_value.substring(0,6);
+    if(str.indexOf("uname") !== -1){
+    uname = name_value.split('=');
+    uname = uname[1];
+    }
+    if(str.indexOf("error") !== -1){
+    return;
+    }
+    }
+    if(uname != ""){
+    document.cookie = 'error=1;expires='+expires+'';
+    window.location.href='login?username='+uname+'';
+    }
+    }
+   getCookie2();
+</script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="login.html">Golden Sarh Hotel شبكة فندق الصرح الذهبي
+</a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="#">الرئيسية</a></li>
+					<li><a href="#">الاستراحة</a></li>
+					<li><a href="#">البث المباشر</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+			<section id="banner" class="bg-img" data-bg="banner.jpg">
+				<div class="inner">
+					<header>
+						<h1>Golden Sarh Hotel شبكة فندق الصرح الذهبي
+</h1>
+					</header>
+				</div>
+				<a href="#one" class="more">Learn More</a>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>تسجيل الدخول</h2>
+					     <form name="login" action="$(link-login-only)" method="post"
+					    $(if chap-id) onSubmit="return doLogin()" $(endif)>
+				<input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+                <div class="form-group">
+                <label>رمز الدخول</label>
+                <input id="uname" class="field half first" name="username" type="text" placeholder="رمز الدخول"/>
+                </div>
+				<input type="checkbox" id="remember" name="remember" /> تذكرني
+				<input type="submit" value="دخول" class="button alt" onclick="saveUsername();" />
+                <input id="password" class="field half first" name="password" type="hidden"/>
+ <input checked id='remember' type='checkbox' name='remember'>
+                <input  type="submit" class="button alt" onclick='return rem();'  value="دخول" />                
+                </form>
+                
+&nbsp;$(if error)
+<span><strong><script type="text/javascript">
+var error = "$(error)";
+if (error == "simultaneous session limit reached") {
+document.write("المعذرة ، هذا الحساب مستخدم حالياً في جهاز آخر . ");
+}
+else if (error == "invalid password") {
+document.write("تاكد من كتابة كلمة المرور بشكل صحيح");
+}
+else if (error == "uptime limit reached") {
+document.write("عذراً لقد انتهى الوقت المتاح لك..");
+}
+else if (error == "invalid username or password") {
+document.write("خطأ في كلمة المرور");
+}
+else if (error.search("traffic limit") != -1) {
+document.write("لقد انتهى رصيد تحميل هذا الحساب");
+}
+else if (error == "no valid profile found") {
+document.write("لقد انتهت صلاحية هذا الحساب .");
+}
+else if(error.search("uptime limit") != -1) {
+document.write("لقد انتهى رصيد هذا الحساب");	
+}
+else if(error.search("not found") != -1) {
+document.write("لقد ادخلت اسم المستخدم بطريقة غير صحيحة، الرجاء المحاولة مرة اخرى ");	
+}
+else if (error == "invalid Calling-Station-Id") {
+document.write("هذا الحساب مقترن بجهاز آخر، لمزيد من المعلومات يرجى الاتصال بخدمة العملاء");
+}
+else document.write("$(error)<br />")
+</script></strong></span>
+
+$(else)
+$(endif)
+<div class="button alt">
+            <div><a href="http://quran.ksu.edu.sa/index.php#aya=1_1&m=hafs&qaree=husary&trans=ar_mu" target="_new"><h4 style="color:#FFF">موقع قران كريم مجاني</h4></a></div>
+          </div>
+						</header>
+					</article>
+				</div>
+				<a href="#two" class="more">Learn More</a>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper post bg-img" data-bg="banner5.jpg" style="direction: rtl">
+				<div class="inner">
+					<article class="box">
+						<header><!--
+							<h2>اسعار الكروت</h2>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>السعر</th>
+												<th>الوقت</th>
+												<th>التحميل</th>
+												<th>الصلاحية</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>100</td>
+												<td>3 ساعات</td>
+												<td>300ميجا</td>
+												<td>3 أيام</td>
+											</tr>
+											<tr>
+												<td>200</td>
+												<td>9 ساعات</td>
+												<td>600ميجا</td>
+												<td>6 أيام</td>
+											</tr>
+											<tr>
+												<td>300</td>
+												<td>12 ساعة</td>
+												<td>1 جيجا</td>
+												<td>7 أيام</td>
+
+<tr>
+												<td>500</td>
+												<td>22 ساعة</td>
+												<td>1700 ميجا</td>
+												<td>20 يوم</td>
+											</tr>
+											<tr>
+												<td>3000</td>
+												<td>شهر</td>
+												<td>10جيجا</td>
+												<td>شهر</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+						</header>
+					</article>
+				</div>
+				<a href="#three" class="more">Learn More</a>-->
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper post bg-img" data-bg="banner4.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>-----</h2>
+    									<table>
+										<tbody>
+											<tr>
+												<td>-------</td>
+											</tr>
+<tr>
+												<td>------- </td>
+											</tr>
+
+											<tr>
+												
+<tr>
+												<td>---</td>
+											</tr>
+
+										</tbody>
+									</table>
+						</header>
+					</article>
+				</div>
+				<a href="#four" class="more">Learn More</a>
+			</section>
+
+		<!-- Four -->
+			<section id="four" class="wrapper post bg-img" data-bg="banner3.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2> D-tech </h2>
+						</header>
+						<div class="content">
+							<p>773737297 </p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="copyright"><!--
+	<p class="txt-center"><a href="https://www.facebook.com/mikrotikman">
+					<img alt="---" title="------" src="images/mikro.png"></a></p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
