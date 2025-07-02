@@ -1,325 +1,462 @@
-﻿<!DOCTYPE HTML>
-<!--
-	Road Trip by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>شبكة الصرح الذهبي  </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-<script type="text/javascript" src="audio-player.js"></script>  
-$(if chap-id)
- <script>
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*10*1000));
-    var expires = "expires=" + d.toGMTString();
-	<!-- alert("محاولة الدخول " + cvalue ); -->
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+	<meta charset="utf-8" />
+	<meta name="theme-color" content="#006f7a" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>تسجيل الدخول</title>
+	
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' /> 
+
+	<link rel="stylesheet" href="assets/css/assets.css" />
+	<link rel="stylesheet" type="text/css" href="assets/Cairo/Cairo.css" />
+	<link rel="stylesheet" href="assets/css/fontello.css" />
+    <script src="assets/js/hotCookie.min.js"></script>
+    <script src="assets/js/hotInImprover.min.js"></script>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/chik.css">
+	<script type="text/javascript" src="assets/js/label.js"></script>
+	<script src="assets/js/jquery-1.11.2.min.js"></script> 
+	<script src="assets/js/hotBlocker.min.js" login-error="$(error)" try-count="30" block-time="1"></script>
+	
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ua = navigator.userAgent.toLowerCase();
+    const isAndroid = ua.includes("android");
+    const isCNA = ua.includes("captive") && isAndroid;
+    const isWebView = ua.includes("wv") || ua.includes("captive");
+    const isInChrome = ua.includes("chrome") && !isWebView;
+    const currentHost = window.location.hostname;
+
+    if (isCNA && !isInChrome && currentHost) {
+        const chromeURL = `intent://${currentHost}/login#Intent;scheme=http;package=com.android.chrome;end`;
+
+        // محاولة التوجيه لكروم
+        window.location.href = chromeURL;
+
+        // Fallback: بعد 3 ثوانٍ، نظهر الزر اليدوي إذا لم يتم التوجيه
+        setTimeout(() => {
+            const manualLink = document.getElementById("manual-open");
+            if (manualLink) {
+                manualLink.style.display = "block";
+                manualLink.href = `http://${currentHost}/login`;
+            }
+
+            // (اختياري) عرض رسالة توضيحية إن أردت لاحقًا
+            const toast = document.getElementById("toast-message");
+            if (toast) toast.style.display = "block";
+        }, 3000);
     }
-    return "";
-}
-function checkCookie() {
-    var user=getCookie("username");
-    if (user >= 5) {
-        window.location = "block.html";
-    } else {
-	var counts;
-	counts=Number(user);
-	setCookie("username", counts+1, 30);
-    }
-}
+});
 </script>
 
-<script type="text/javascript" src="/md5.js"></script>
-	<!-- Start Java Script Functions -->
-
-	<script type='text/javascript' language="javascript">
-	function rem(){
-	var uname = document.getElementById('uname').value;
-    var rem   = document.getElementById('remember').checked;
-	if(rem == true){
-    var date = new Date();
-    date.setTime(date.getTime()+(5*1000));
-    var expires = date.toGMTString();
-    date.setTime(date.getTime()+(259200*1000));
-    var expire  = date.toGMTString();
-    document.cookie = 'uname='+uname+';expires='+expire+'';
-    document.cookie = 'error=1;expires='+expires+'';
-    }
-    else{
-    return;
-    }
-	}
-	function getCookie2(){
-	var date = new Date();
-    date.setTime(date.getTime()+(5*1000));
-    var expires = date.toGMTString();
-    var SP = document.cookie.split(';');
-    for (i=0; i < SP.length; i++) {
-    name_value = SP[i];
-    str = name_value.substring(0,6);
-    if(str.indexOf("uname") !== -1){
-    uname = name_value.split('=');
-    uname = uname[1];
-    }
-    if(str.indexOf("error") !== -1){
-    return;
-    }
-    }
-    if(uname != ""){
-    document.cookie = 'error=1;expires='+expires+'';
-    window.location.href='login?username='+uname+'';
-    }
-    }
-   getCookie2();
-</script>
-	<script type="text/javascript">
-	<!--
-	    function doLogin() {
-		document.sendin.username.value = document.login.username.value;
-		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
-		document.sendin.submit();
-		return false;
+	<!-- JavaScript to read parameters from location.hash instead of location.search -->
+	<script>
+	window.onload = function() {
+	    // Remove the '#' from location.hash and create a URLSearchParams object
+	    const hash = window.location.hash.substring(1);
+	    const params = new URLSearchParams(hash);
+	    const user = params.get('username');
+	    const autologin = params.get('autologin');
+	    if (user) {
+	        document.getElementById('username').value = user;
 	    }
-	//-->
+	    if (autologin === '1') {
+	        document.forms['login'].submit();
+	    }
+		// ✅ التركيز بعد إغلاق رسالة الخطأ
+    const alertErrorElement = document.getElementById("alert-error");
+    if (alertErrorElement) {
+        setTimeout(function () {
+            alertErrorElement.style.display = "none";
+            // إعادة التركيز وفتح لوحة الأرقام
+            const usernameInput = document.getElementById("username");
+            if (usernameInput) {
+                usernameInput.focus();
+                // محاولة لإجبار ظهور لوحة المفاتيح (أجهزة الجوال)
+                const evt = new Event('touchstart');
+                usernameInput.dispatchEvent(evt);
+            }
+        }, 3000);
+    } else {
+        // إذا ما فيش خطأ، ركز مباشرة
+        const usernameInput = document.getElementById("username");
+        if (usernameInput) {
+            usernameInput.focus();
+        }
+    }
+	};
 	</script>
-	</head>
-	<body>
+	 
+</head>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="login.html">Golden Sarh Hotel شبكة فندق الصرح الذهبي
-</a></div>
-				<a href="#menu"><span>Menu</span></a>
-			</header>
+$(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="https://tolipsanaa.com/jaib-redirect.php?mac=$(mac)&localip=$(ip)&identity=$(identity)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="#">الرئيسية</a></li>
-					<li><a href="#">الاستراحة</a></li>
-					<li><a href="#">البث المباشر</a></li>
-				</ul>
-			</nav>
-
-		<!-- Banner -->
-		<!--
-			Note: To show a background image, set the "data-bg" attribute below
-			to the full filename of your image. This is used in each section to set
-			the background image.
-		-->
-			<section id="banner" class="bg-img" data-bg="banner.jpg">
-				<div class="inner">
-					<header>
-						<h1>Golden Sarh Hotel شبكة فندق الصرح الذهبي
-</h1>
-					</header>
-				</div>
-				<a href="#one" class="more">Learn More</a>
-			</section>
-
-		<!-- One -->
-			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-							<h2>تسجيل الدخول</h2>
-					     <form name="login" action="$(link-login-only)" method="post"
-					    $(if chap-id) onSubmit="return doLogin()" $(endif)>
-				<input type="hidden" name="dst" value="$(link-orig)" />
-				<input type="hidden" name="popup" value="true" />
-                <div class="form-group">
-                <label>رمز الدخول</label>
-                <input id="uname" class="field half first" name="username" type="text" placeholder="رمز الدخول"/>
-                </div>
-                <input id="password" class="field half first" name="password" type="hidden"/>
-				<div id="toggles">
-				   <input type="checkbox" name="checkbox1" id="remember" class="ios-toggle" value="ON" checked/>
-				   <label for="remember" class="field half first" data-off="لا تتذكرني" data-on="تذكرني"></label>
-				 </div>	            
-            <div class="submit">
-                <button onclick='return rem();' type="submit">تسجيل الدخول<i class=""></i></button>
-			</div>
-            
-                </form>
-                
-&nbsp;$(if error)
-<span><strong><script type="text/javascript">
-var error = "$(error)";
-if (error == "simultaneous session limit reached") {
-document.write("المعذرة ، هذا الحساب مستخدم حالياً في جهاز آخر . ");
-}
-else if (error == "invalid password") {
-document.write("تاكد من كتابة كلمة المرور بشكل صحيح");
-}
-else if (error == "uptime limit reached") {
-document.write("عذراً لقد انتهى الوقت المتاح لك..");
-}
-else if (error == "invalid username or password") {
-document.write("خطأ في كلمة المرور");
-}
-else if (error.search("traffic limit") != -1) {
-document.write("لقد انتهى رصيد تحميل هذا الحساب");
-}
-else if (error == "no valid profile found") {
-document.write("لقد انتهت صلاحية هذا الحساب .");
-}
-else if(error.search("uptime limit") != -1) {
-document.write("لقد انتهى رصيد هذا الحساب");	
-}
-else if(error.search("not found") != -1) {
-document.write("لقد ادخلت اسم المستخدم بطريقة غير صحيحة، الرجاء المحاولة مرة اخرى ");	
-}
-else if (error == "invalid Calling-Station-Id") {
-document.write("هذا الحساب مقترن بجهاز آخر، لمزيد من المعلومات يرجى الاتصال بخدمة العملاء");
-}
-else document.write("$(error)<br />")
-</script></strong></span>
-
-$(else)
+    <script type="text/javascript" src="/md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            setTimeout(function() {
+                document.sendin.submit();
+            }, 200); // تأخير بسيط لضمان جاهزية الصفحة قبل الإرسال
+            return false;
+        }
+    </script>
 $(endif)
-<div class="button alt">
-            <div><a href="http://quran.ksu.edu.sa/index.php#aya=1_1&m=hafs&qaree=husary&trans=ar_mu" target="_new"><h4 style="color:#FFF">موقع قران كريم مجاني</h4></a></div>
-          </div>
-						</header>
-					</article>
-				</div>
-				<a href="#two" class="more">Learn More</a>
-			</section>
 
-		<!-- Two -->
-			<section id="two" class="wrapper post bg-img" data-bg="banner5.jpg" style="direction: rtl">
-				<div class="inner">
-					<article class="box">
-						<header><!--
-							<h2>اسعار الكروت</h2>
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>السعر</th>
-												<th>الوقت</th>
-												<th>التحميل</th>
-												<th>الصلاحية</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>100</td>
-												<td>3 ساعات</td>
-												<td>300ميجا</td>
-												<td>3 أيام</td>
-											</tr>
-											<tr>
-												<td>200</td>
-												<td>9 ساعات</td>
-												<td>600ميجا</td>
-												<td>6 أيام</td>
-											</tr>
-											<tr>
-												<td>300</td>
-												<td>12 ساعة</td>
-												<td>1 جيجا</td>
-												<td>7 أيام</td>
 
-<tr>
-												<td>500</td>
-												<td>22 ساعة</td>
-												<td>1700 ميجا</td>
-												<td>20 يوم</td>
-											</tr>
-											<tr>
-												<td>3000</td>
-												<td>شهر</td>
-												<td>10جيجا</td>
-												<td>شهر</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-						</header>
-					</article>
-				</div>
-				<a href="#three" class="more">Learn More</a>-->
-			</section>
+<!-- بداية كود الوضع الليلي-->
 
-		<!-- Three -->
-			<section id="three" class="wrapper post bg-img" data-bg="banner4.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-							<h2>-----</h2>
-    									<table>
-										<tbody>
-											<tr>
-												<td>-------</td>
-											</tr>
-<tr>
-												<td>------- </td>
-											</tr>
+<style type='text/css'>
+/* Night Mode */
+.nightly{color:#fff;font-size:12px}
+.Switchbtn{position: fixed;top: 30%;left: 0px;transform: translateY(-50%);width: 30px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;}
+.togglenight{display:none;}
+.togglenight + .togglenight-btn{outline:0;display:inline-block;width:45px;height:10px;position:relative;cursor:pointer;margin-left:5px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.togglenight + .togglenight-btn:after,.togglenight + .togglenight-btn:before{position:relative;display:block;content:"";width:50%;height:100%}
+.togglenight-switch + .togglenight-btn{background:#d5d2fc;border-radius:99em;transition:all .4s ease}
+.togglenight-switch + .togglenight-btn:after{content:'';border-radius:100px;background:#887fff;transition:left 0.3s cubic-bezier(0.175,0.885,0.32,1.275),padding 0.3s ease,margin 0.3s ease;position:absolute;width:20px;height:20px;top:-5px;left:0;box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23)}
+.togglenight-switch:checked + .togglenight-btn{background:rgba(255,255,255,.15)}
+.togglenight:checked + .togglenight-btn:after{content:'';left:55%;background:#ff9f43}
+.nightmode{background:#202124;color:rgba(255,255,255,.7)}
+.nightmode a{color:rgba(255,255,255,.7)!important}
+.nightmode a:hover{color:rgba(255,255,255,.4)!important}
+.nightmode .class-baru{}
+.nightmode .class-baru{}
+.nightmode .form{background-color:#202124;}
+.nightmode .submit button {background:#101;}
+.nightmode .back button {background:#101;}
+.nightmode .trial {background:#101;}
+.nightmode .social-icon {background:#101;}
+.nightmode .social-icon.facebook:hover {background:#101;}
+.nightmode .social-icon.dollar:hover {background:#101;}
+.nightmode .social-icon.gplus:hover {background:#101;}
+.nightmode .social-icon.location:hover {background:#101;}
+.nightmode .copyright {background:#101;}
+.nightmode .marque {background:#101;}
+.nightmode .banner {background:#202124;}
+.nightmode .form .input-group .input-field input {color:#101;}
+.nightmode .modal {background:#202124;}
+</style>
 
-											<tr>
-												
-<tr>
-												<td>---</td>
-											</tr>
+<div class='Switchbtn'>
+<span class='nightly'></span> <input class='togglenight togglenight-switch' id='nightmode' type='checkbox'/>
+<label class='togglenight-btn' for='nightmode'/></div>
+<script type='text/javascript'>
+//<![CDATA[
+// Night Mode
+$("#nightmode").click(function(){
+    $("body").toggleClass("nightmode")
+}),
+$("body").toggleClass(localStorage.toggled),
+$("#nightmode").click(function(){
+    "nightmode" != localStorage.toggled ? ($("body").toggleClass("nightmode",!0), localStorage.toggled="nightmode") : ($("body").toggleClass("nightmode",!1), localStorage.toggled="")
+});
+//]]>
+</script>
+<!-- نهاية كود الوضع الليلي-->
 
-										</tbody>
-									</table>
-						</header>
-					</article>
-				</div>
-				<a href="#four" class="more">Learn More</a>
-			</section>
+<body>
+<!-- /كود لوغو خارج البنر-->
+                  <!--<div class="logo-basheer"><img src="assets/img/logo.svg"></div>-->
+<!-- /نهاية كود اللوغو--> 
 
-		<!-- Four -->
-			<section id="four" class="wrapper post bg-img" data-bg="banner3.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-							<h2> D-tech </h2>
-						</header>
-						<div class="content">
-							<p>773737297 </p>
-						</div>
-					</article>
-				</div>
-			</section>
+    <!-- سكربت خاص بالساعة-->
+<div id="clock">Loading...</div>  
+<script type="text/javascript">  
+    function refrClock()  {  
+        var d = new Date();  
+        var s = d.getSeconds();  
+        var m = d.getMinutes();  
+        var h = d.getHours();  
+        var day = d.getDay();  
+        var date = d.getDate();  
+        var month = d.getMonth();  
+        var year = d.getFullYear();  
+        var days = new Array("الاحد","الاثنين","الثلاثاء","الاربعاء","الخميس","الجمعة","السبت");  
+        var months = new Array("يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر");  
+        var am_pm;  
+        if (s < 10) { s = "0" + s }  
+        if (m < 10) { m = "0" + m }  
+        if (h > 12) { h -= 12; am_pm = "مساءً." } else { am_pm = "صباحاً." }  
+        if (h < 10) { h = "0" + h }  
+        document.getElementById("clock").innerHTML = days[day] + " " + date + " من " + months[month] + " " + year + "   |   الساعة الان " + h + ":" + m + ":" + s + " " + am_pm;  
+        setTimeout("refrClock()",1000);  
+    }  
+    refrClock();
+</script>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<div class="copyright"><!--
-	<p class="txt-center"><a href="https://www.facebook.com/mikrotikman">
-					<img alt="---" title="------" src="images/mikro.png"></a></p>
-					</div>
-				</div>
-			</footer>
+ <!-- نهاية الكود-->
+	
+    <div class="form">
+      <div class="banner">
+	  <!-- /كود لوغو داخل البنر-->
+       <!--<img src="assets/img/logo.svg">-->
+	   <!-- /نهاية كود-->
+	   <!-- /بداية كود اسم الشبكة داخل البنر-->
+            <div class="back"><button>فندق ومنتجع توليب صنعاء</button></div>
+	<br>
+        </div>
+		<!-- /نهاية كود-->
+		<a id="manual-open" href="#" style="display:none; color: blue; font-size: 16px;" target="_blank">
+📲 لم يتم التوجيه التلقائي؟ اضغط هنا لفتح الصفحة في المتصفح
+</a>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<!-- /بداية كود شريط اخباري-->
+		<div class="marque">
+        <marquee direction="right" style="color: #873600;" onMouseOver="this.stop();" onMouseOut="this.start();" div class="gif"> 
+            أهلا بكم فندق ومنتجع توليب صنعاء نتمنى لكم اقامة ممتعة 
+            <img width="50" src="img/new.gif" align="absmiddle" /> 
+            المنتجع متاح لنزلاء الفندق مجانا (النزلاء مع عائلاتهم)
+            <img width="50" src="img/new.gif" align="absmiddle" /> 
+            انترنت مجاني فائق السرعة وخدمات على مدار الساعة
+            <img width="50" src="img/new.gif" align="absmiddle" />  
 
-	</body>
+        </marquee>
+    </div>
+	<!-- /نهاية كود الشريط الاخباري-->
+	<!-- /بداية كود الايقونات-->
+        <div class="banner2">
+                <div class="floated">
+                        <a href="https://facebook.com/tolipsanaa">
+                            <div class="social-icon facebook">
+                                <i class="icon-facebook"></i>
+                            </div>
+                        </a>
+                        <div class="social-icon gplus" onclick="document.getElementById('alert-phone').style.display = ('block')">
+                            <i class="icon-whatsapp"></i>
+                        </div>
+                        <div class="social-icon location" onclick="document.getElementById('alert-location').style.display = ('block')">
+                            <i class="icon-location"></i>
+                        </div>
+                    </div>
+        </div>
+		<!-- /نهاية كود الايقونات-->
+		
+		<!-- /بداية كود تسجيل الدخول-->
+		<form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+<input type="hidden" name="dst" value="https://tolipsanaa.com/jaib-redirect.php?mac=$(mac)&localip=$(ip)&identity=$(identity)" />
+            <input type="hidden" name="popup" value="true" />
+            <div class="input-group">		   
+            <div class="input-field">
+<input id="username" type="text" inputmode="numeric" pattern="[0-9]*"  style="color: #873600; background:rgba(230,230,230,1.85);" name="username" placeholder="ادخل رقم الكرت هنا" required improve-input rm-white-spaces to-lower to-arabic-numbers />
+            </div>
+            <div class="input-field">
+                <input id="paswd" type="hidden" placeholder="كلمة السر" name="password" />
+            </div>
+            <div id="toggles">
+				   <input type="checkbox" name="checkbox1" id="remember" class="ios-toggle" value="ON" checked/>
+				   <label for="remember" class="checkbox-label" data-off="لا تتذكرني" data-on="تذكرني"></label>
+			</div>	            
+            <div class="submit">
+                <button onclick="return rem();" type="submit">تسجيل الدخول<i class=""></i></button>
+			</div>
+			$(if trial == 'yes')
+                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">
+                    <div class="trial"><span>تجربة الإنترنت</span></div>
+                </a>
+			<p>$(endif)
+		    </p>
+        </form>
+		<!-- /نهاية كود تسجيل الدخول-->
+   
+    <div class="copyright">
+	    <span style="color: #873600;">الاستعلامات : 0</span>
+	    <span id="Address" style="color: #873600;">او على الرقم 780750710</span>
+	</div>
+<!-- /بداية كود قسم الاعلانات الصورية-->
+    <div id="hcg-slider-1" class="hcg-slider">
+        <div class="hcg-slide-container">
+            <div class="hcg-slider-body">
+                <a class="hcg-slides animated" style="display:block"></a>
+            </div>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+    </div>
+	<!-- /نهاية كود-->
+							
+	<!-- لا تحذف هذه السطور تحت اي ظروف حقوق الملكية  كود الملكية عامر كون-->
+  <footer class="copyright2">
+		<tr>
+			<td style="height: 20px;" align="center" valign="center">
+				<font style="background:rgba(0,0,0,0.4); color: #FFF; font-size: 11px;">
+					Developed &amp; Powered By 
+					<a target="_blank" style="color: lime;" href="https://g.page/r/CdCEWq0zL0emEBE/review">
+						TOLIP Sanaa Team&copy; 2024
+					</a>
+					<b style="color: #FFFF00; font-size: 9px;"><br />@GTech</b>
+				</font>
+			</td>
+		</tr>
+  </footer>
+<!-- /نهاية كود الملكية @@عامر المحمدي-->
+
+ </div>
+
+<!-- /بداية كود شريط الاخطاء-->
+$(if error)
+<div id="alert-error" class="alert-back" onclick="this.style.display = ('none')">	
+    <div class="modal">
+        <div class="modal-icon error"><i class="icon-error"></i></div>
+        <div class="title error">رسالة خطأ:</div>
+        <div class="modal-clear"></div>
+        <div id="line"></div>
+        <div class="modal-body">
+            <p>
+                <script type="text/javascript">
+                var error = "$(error)";
+                if (error == "simultaneous session limit reached") {
+                    document.write("لا يمكن تسجيل الدخول أكثر من مرة");
+                }
+                else if (error == "invalid username or password") {
+                    document.write("خطأ في إسم المستخدم او كلمة المرور حاول مرة اخرى");
+                }
+                else if (error == "access denied at this time") {
+                    document.write("بطاقة سهرة لا يمكن استخدامها في هذا الوقت");
+                }
+                else if (error == "uptime limit reached") {
+                    document.write("عذرا لقد انتهى الوقت المتاح لك..");
+                }
+                else if (error == "invalid password") {
+                    document.write("تأكد من كتابة كلمة المرور بشكل صحيح");
+                }
+                else if (error == "no more sessions are allowed for user $(username)") {
+                    document.write("لا يمكن تسجيل الدخول اكثر من مرة");
+                }
+                else if (error == "no valid profile found") {
+                    document.write("لقد انتهت صلاحية هذه البطاقة");
+                }
+                else if (error == "transfer limit reached") {
+                    document.write("لا يمكنك تسجيل الدخول , انتهى رصيد هذه البطاقة");
+                }
+                else if (error == "user $(username) has reached traffic limit") {
+                    document.write("لا يمكنك تسجيل الدخول , انتهى رصيد هذه البطاقة");
+                }
+                else if (error == "invalid Calling-Station-Id") {
+                    document.write("هذا الحساب مقترن بجهاز آخر ");
+                }
+                else if (error == "user $(username) is not allowed to log in from this MAC address") {
+                    document.write("هذا الحساب مقترن بجهاز آخر");
+                }
+                else if(error.search("not found") != -1) {
+                    document.write("اسم المستخدم غير موجود تأكد من كتابته بشكل صحيح");
+                }
+                else if (error == "radius timeout") {
+                    document.write("عزيزي المشترك نعتذر عن انقطاع الخدمة بسبب الصيانة");
+                }
+				
+else if (error == "already authorizing, retry later") {
+
+    document.write("تم الضغط مرتين بسرعة، انتظر قليلاً ثم حاول مجددًا");
+
+}
+                else document.write("$(error)")
+                </script>
+            </p>
+        </div>
+    </div>
+</div>
+$(endif)
+<!-- /نهاية كود-->
+
+<!-- /بداية كود شريط التواصل-->
+<div id="alert-phone" class="alert-back" onclick="this.style.display = ('none')">	
+    <div class="modal">
+        <div class="modal-icon phone"><i class="icon-phone"></i></div>
+        <div class="title phone">أتصل بنا:</div>
+        <div class="modal-clear"></div>
+        <div id="line"></div>
+        <div class="modal-body">
+            <div>ادارة  : <p id="Phone_Admin">780750710</p></div>
+            <div>صيانة  : <p id="Phone_Repair">780750703</p></div>
+        </div>
+    </div>
+</div>
+<!-- /نهاية كود-->
+
+<!-- /بداية اكواد جافا سكربت ممنوع الاقتراب او التعديل لتعمل الصفحة بشكل سليم-->
+<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<!--<script type="text/javascript" src="assets/js/castom.js"></script>-->
+<script type="text/javascript">
+function removeSpaces(string) {
+    return string.split(' ').join('');
+}
+$('[placeholder]').focus(function(){
+    $(this).attr('data-text', $(this).attr('placeholder'));
+    $(this).attr('placeholder', '');
+}).blur(function(){
+    $(this).attr('placeholder', $(this).attr('data-text'));
+});
+</script>
+<!-- /نهاية الكود-->
+
+<!-- /بداية كود جافا سكربت تابع لعرض صور الاعلانات-->
+<script>
+(function() {
+    let images_list = [
+        { "url": "img/pic1.jpg", "name": "image 1", "link": "" },
+        { "url": "img/pic2.jpg", "name": "image 2", "link": "" },
+        { "url": "img/pic3.jpg", "name": "image 4", "link": "" }
+    ];
+
+    let slider_id = document.querySelector("#hcg-slider-1");
+    let dots_div = "";
+    let images_div = "";
+    for (let i = 0; i < images_list.length; i++) {
+        let href = (images_list[i].link == "" ? "" : ' href="' + images_list[i].link + '"');
+        images_div += '<a' + href + ' class="hcg-slides animated"' + (i === 0 ? ' style="display:block"' : '') + '>' +
+                      '<img src="' + images_list[i].url + '" alt="' + images_list[i].name + '">' +
+                      '</a>';
+        dots_div += '<span class="hcg-slide-dot' + (i === 0 ? ' dot-active' : '') + '" data-id="' + i + '"></span>';
+    }
+    slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+    slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+    let slide_index = 0;
+    let images = slider_id.querySelectorAll(".hcg-slides");
+    let dots = slider_id.querySelectorAll(".hcg-slide-dot");
+
+    function showSlides() {
+        if (slide_index > images.length - 1) {
+            slide_index = 0;
+        }
+        if (slide_index < 0) {
+            slide_index = images.length - 1;
+        }
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.display = "none";
+            dots[i].classList.remove("dot-active");
+            if (i == slide_index) {
+                images[i].style.display = "block";
+                dots[i].classList.add("dot-active");
+            }
+        }
+    }
+
+    function dot_click(event) {
+        slide_index = event.target.dataset.id;
+        showSlides();
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].addEventListener("click", dot_click, false);
+    }
+    setInterval(function() {
+        slide_index++;
+        showSlides();
+    }, 5000);
+})();
+</script>
+
+</body>
 </html>

@@ -1,0 +1,77 @@
+* {
+}
+body {
+    background: radial-gradient(#fff, #a57b4a) no-repeat;
+    /*background: -webkit-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: -o-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: -moz-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: #dcdde1;*/
+}
+.submit button {
+    position: relative;
+	margin: 10px auto;
+    width: 90%;
+    font-size: 119%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #a57b4a;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-bottom: 10px solid rgba(0,0,0,0.22);
+
+}
+.back button {
+  width: 90%;
+  font-size: 119%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: #a57b4a;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-bottom: 10px solid rgba(0,0,0,0.22);
+ }
+.trial {
+	position: relative;
+	margin: 10px auto;
+    width: 90%;
+    font-size: 119%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #a57b4a;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-bottom: 10px solid rgba(0,0,0,0.22);
+		}
+
+.gif {
+    color: #a57b4a;
+	}
+.gif:hover  {
+    background: #fff;
+}
+/*
+ *switcher style
+ */
+.switcherContent{
+    border-bottom: 1px solid #a57b4a
+}
+.switcher .switcherContents header,.switcher .switcherShowHide{
+    background: #a57b4a;
+}
+.tempLayout ul li{
+    border: 1px solid  #a57b4a
+}
+.nicescroll-cursors {
+    background: #a57b4a !important;
+    border: none !important;
+}

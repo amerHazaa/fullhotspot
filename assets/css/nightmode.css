@@ -1,0 +1,32 @@
+
+<style type='text/css'>
+/* Night Mode */
+.nightly{color:#fff;font-size:12px}
+.Switchbtn{position: fixed;top: 30%;left: 0px;transform: translateY(-50%);width: 30px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;}
+.togglenight{display:none;}
+.togglenight + .togglenight-btn{outline:0;display:inline-block;width:45px;height:10px;position:relative;cursor:pointer;margin-left:5px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.togglenight + .togglenight-btn:after,.togglenight + .togglenight-btn:before{position:relative;display:block;content:"";width:50%;height:100%}
+.togglenight-switch + .togglenight-btn{background:#d5d2fc;border-radius:99em;transition:all .4s ease}
+.togglenight-switch + .togglenight-btn:after{content:'';border-radius:100px;background:#887fff;transition:left 0.3s cubic-bezier(0.175,0.885,0.32,1.275),padding 0.3s ease,margin 0.3s ease;position:absolute;width:20px;height:20px;top:-5px;left:0;box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23)}
+.togglenight-switch:checked + .togglenight-btn{background:rgba(255,255,255,.15)}
+.togglenight:checked + .togglenight-btn:after{content:'';left:55%;background:#ff9f43}
+.nightmode{background:#202124;color:rgba(255,255,255,.7)}
+.nightmode a{color:rgba(255,255,255,.7)!important}
+.nightmode a:hover{color:rgba(255,255,255,.4)!important}
+.nightmode .class-baru{}
+.nightmode .class-baru{}
+.nightmode .form{background-color:#202124;}
+.nightmode .submit button {background:#101;}
+.nightmode .back button {background:#101;}
+.nightmode .trial {background:#101;}
+.nightmode .social-icon {background:#101;}
+.nightmode .social-icon.facebook:hover {background:#101;}
+.nightmode .social-icon.dollar:hover {background:#101;}
+.nightmode .social-icon.gplus:hover {background:#101;}
+.nightmode .social-icon.location:hover {background:#101;}
+.nightmode .copyright {background:#101;}
+.nightmode .marque {background:#101;}
+.nightmode .banner {background:#202124;}
+.nightmode .form .input-group .input-field input {color:#101;}
+.nightmode .modal {background:#202124;}
+</style>

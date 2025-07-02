@@ -1,0 +1,77 @@
+* {
+}
+body {
+    background: radial-gradient(#fff, #3498db) no-repeat;
+    /*background: -webkit-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: -o-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: -moz-radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: radial-gradient(#fff, #804000) no-repeat;*/
+    /*background: #dcdde1;*/
+}
+.submit button {
+    position: relative;
+	margin: 10px auto;
+    width: 90%;
+    font-size: 119%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #3498db;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-bottom: 10px solid rgba(0,0,0,0.22);
+
+}
+.back button {
+  width: 90%;
+  font-size: 119%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: #3498db;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-bottom: 10px solid rgba(0,0,0,0.22);
+ }
+.trial {
+	position: relative;
+	margin: 10px auto;
+    width: 90%;
+    font-size: 119%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #3498db;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-bottom: 10px solid rgba(0,0,0,0.22);
+	}
+
+.gif {
+    color: #3498db;
+	}
+.gif:hover  {
+    background: #fff;
+}
+/*
+ *switcher style
+ */
+.switcherContent{
+    border-bottom: 1px solid #0098d7
+}
+.switcher .switcherContents header,.switcher .switcherShowHide,.tempLayout ul .active-layout,.tempLayout ul li:hover{
+    background: #0098d7;
+}
+.tempLayout ul li{
+    border: 1px solid  #0098d7
+}
+.nicescroll-cursors {
+    background: #0098d7 !important;
+    border: none !important;
+}

@@ -1,111 +1,65 @@
-﻿<!DOCTYPE HTML>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="windows-1256" />
+	<meta name="theme-color" content="#006f7a" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title> تم تسجيل خروجك بنجاح</title>
+	
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' /> 
+
+	<link rel="stylesheet" href="assets/css/assets.css" />
+	<link rel="stylesheet" type="text/css" href="assets/Cairo/Cairo.css" />
+
+</head>
+
+<script language="JavaScript">
 <!--
-	Road Trip by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>تم تسجيل الدخول </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+//-->
+</script>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="login.html">Golden Sarh Hotel شبكة فندق الصرح الذهبي
-</a></div>
-				<a href="#menu"><span>Menu</span></a>
-			</header>
+<body>
+    <div class="box">
+        <div class="logo">
+            <img src="assets/img/arrows.svg">
+        </div>
+        <div class="success">
+            <p>تم تسجيل خروجك بنجاح</p>
+        </div>
+        <div class="log-in">
+            <p>للدخول مرة اخرى اضغط على الزر ادناه</p>
+        </div>
+	    <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+            <div class="submit">
+                <button type="submit">دخول<i class="icon-login"></i></button>
+            </div> 
+	<!-- لا تحذف هذه السطور تحت اي ظروف حقوق الملكية  كود الملكية @@محترف سوريا@@أبو رواد-->
+  <footer class="copyright2">
+		<tr>
+			<td style="height: 20px;" align="center" valign="center">
+				<font style="background:rgba(0,0,0,0.4);color: #FFF;font-size: 11px;">
+					Developed &amp; Powered By 
+				<a target="_blank" style="color: lime;" href="https://www.mhtrfsyria.com">
+				MHTRF SYRIA &copy; 2022</a>
+					<b style="color: #FFFF00; font-size: 9px;"><br />@GTech</b>
+				</font>
+			</td>
+		</tr>
+  </footer>
+<!-- /نهاية كود الملكية @@محترف سوريا@@أبو رواد-->
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="#">الرئيسية</a></li>
-					<li><a href="#">الاستراحة</a></li>
-					<li><a href="#">البث المباشر</a></li>
-				</ul>
-			</nav>
+	    </form>
+    </div>
+	
+</body>
 
-		<!-- Banner -->
-		<!--
-			Note: To show a background image, set the "data-bg" attribute below
-			to the full filename of your image. This is used in each section to set
-			the background image.
-		-->
-			<section id="banner" class="bg-img" data-bg="banner.jpg">
-				<div class="inner">
-					<header>
-						<h1>Golden Sarh Hotel شبكة فندق الصرح الذهبي
-</h1>
-					</header>
-				</div>
-				<a href="#one" class="more">Learn More</a>
-			</section>
-
-		<!-- One -->
-			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-				  	<h2>تم تسجيل الخروج بنجاح</h2>
-					    <table >  
-<tr><td class="auto-style4"><strong>&#1575;&#1604;&#1608;&#1602;&#1578; &#1575;&#1604;&#1605;&#1587;&#1578;&#1582;&#1583;&#1605;</strong></td>
-	<td class="auto-style4"><strong>$(uptime)</strong></td></tr>
-$(if session-time-left)
-<tr><td class="auto-style4"><strong>&#1575;&#1604;&#1608;&#1602;&#1578; &#1575;&#1604;&#1605;&#1578;&#1576;&#1602;&#1610;</strong></td>
-	<td class="auto-style4"><strong>$(session-time-left)</strong></td></tr>
-$(endif)
-<tr><td class="auto-style4"><strong>&#1575;&#1604;&#1578;&#1581;&#1605;&#1610;&#1604;</strong></td>
-	<td class="auto-style4"><strong>$(bytes-in-nice) </strong></td></tr>
-</table>
-<form action="$(link-login)" name="login" onSubmit="return openLogin()">
-<p align="center" class="auto-style5">
-	<input type="submit" class="button alt" value="تسجيل الدخول" >
-</form>
-						</header>
-					</article>
-				</div>
-				<a href="#two" class="more">Learn More</a>
-			</section>
-
-		<!-- Two -->
-
-		<!-- Three -->
-
-		<!-- Four -->
-			<section id="four" class="wrapper post bg-img" data-bg="banner3.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-							<h2>للأستعلامات يرجى الاتصال على رقم (0) </h2>
-						</header>
-						<div class="content">
-							<p>للاستعلامات (0)</p>
-						</div>
-					</article>
-				</div>
-			</section>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<div class="copyright"><!--
-	<p class="txt-center"><a href="https://www.facebook.com/mikrotikman">
-					<img alt="mikrotikman" title="-------" src="images/mikro.png"></a></p>
-					</div>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+</html> 
